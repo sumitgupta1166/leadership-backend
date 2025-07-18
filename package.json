@@ -4,8 +4,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/server.js"
   },
   "repository": {
     "type": "git",
