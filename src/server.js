@@ -16,9 +16,21 @@ connectDB();
 // Initialize app
 const app = express();
 
+// Allowed origins
+const allowedOrigins = [
+  process.env.FRONTEND_URL || 'http://localhost:5173',
+  'https://leadership-3w.netlify.app'
+];
+
 // CORS Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173', // ✅ Use ENV for flexibility
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
 
