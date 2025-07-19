@@ -18,7 +18,7 @@ const app = express();
 
 // CORS Middleware
 app.use(cors({
-  origin: ['http://localhost:5173',"https://leadership-3w.netlify.app/"], // ✅ Use ENV for flexibility
+  origin: ['http://localhost:5173', 'https://leadership-3w.netlify.app'], // ✅ No slash
   credentials: true,
 }));
 
